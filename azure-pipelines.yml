@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'Free Trial(255d1111-4208-46aa-b130-c96c3d5514ca)'
+    KeyVaultName: 'IacCred1'
+    SecretsFilter: 'ClientId, ClientSecret'
+    RunAsPreJob: true
+- task: ZscalerIaCScan@0
+  inputs:
+    region: 'CUSTOM'
+    failBuild: false
+  env:
+    AUTH_URL: "https://dev-auth.zscwp.io"
+    API_URL: "https://main.dev.api.zscwp.io"
+
+
