@@ -16,9 +16,13 @@ steps:
     KeyVaultName: 'IacCred1'
     SecretsFilter: 'ClientId, ClientSecret'
     RunAsPreJob: true
-- task: ZscalerIaCScan@0
+
+# - task: tarun-zscaler-iac-scan@1
+- task: tarun-zscaler-iac-scan@1
   inputs:
     region: 'CUSTOM'
+    clientId: '$(ClientId)'
+    clientSecret: '$(ClientSecret)'
     failBuild: false
   env:
     AUTH_URL: "https://dev-auth.zscwp.io"
