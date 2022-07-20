@@ -55,7 +55,7 @@
                             "patchMode": "ImageDefault",
                             "assessmentMode": "ImageDefault"
                         }
-                    },
+                    }, 
                     "secrets": [],
                     "allowExtensionOperations": true,
                     "requireGuestProvisionSignal": true
