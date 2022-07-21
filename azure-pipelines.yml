@@ -18,7 +18,7 @@ steps:
     RunAsPreJob: true
 
 # - task: tarun-zscaler-iac-scan@1
-- task: tarun-zscaler-iac-scan@0
+- task: tarun-zscaler-iac-scan@2
   inputs:
     region: 'CUSTOM'
     clientId: '$(ClientId)'
